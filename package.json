@@ -1,0 +1,58 @@
+{
+  "name": "nba-visualizer",
+  "version": "1.0.0",
+  "description": "NBA Charts and Graphs with NBA Data. Visualization is done with Plotly.js.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JovaniPink/belly-graphs.git"
+  },
+  "homepage": "https://github.com/JovaniPink/belly-graphs#readme",
+  "scripts": {
+    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 static/scss/style.scss -o static/css/",
+    "css-prefix": "postcss --replace static/css/style.css --use autoprefixer --map",
+    "css-purge": "purgecss --css static/css/style.css --content index.html --output static/css/",
+    "css": "npm run css-compile && npm run css-prefix",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html --out-dir dist --public-url ./",
+    "test": "npm run css"
+  },
+  "keywords": [
+    "bootstrap",
+    "sass",
+    "javascript",
+    "xstate",
+    "ployly.js",
+    "dashboard"
+  ],
+  "author": "Jovani Pink",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "3.5.1",
+    "popper.js": "1.16.1-lts",
+    "bootstrap": "4.5.2",
+    "bootstrap-icons": "1.0.0",
+    "xstate": "4.13.0",
+    "plotly.js": "1.56.0",
+    "postcss": "8.1.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "3.5.2",
+    "@types/bootstrap": "4.5.1",
+    "@types/plotly.js": "1.50.21",
+    "@types/node": "14.11.8",
+    "@types/node-sass": "4.11.1",
+    "@types/autoprefixer": "9.7.2",
+    "@types/babel-core": "6.25.6",
+    "@types/prettier": "2.1.2",
+    "autoprefixer": "10.0.1",
+    "node-sass": "4.14.1",
+    "postcss-cli": "8.1.0",
+    "purgecss": "3.0.0",
+    "parcel-bundler": "1.12.4",
+    "@babel/core": "7.11.6",
+    "prettier": "2.1.2"
+  },
+  "engines": {
+    "node": ">= 10.19.0"
+  }
+}
