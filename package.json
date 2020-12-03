@@ -39,7 +39,7 @@
     "@types/jquery": "3.5.2",
     "@types/bootstrap": "4.5.1",
     "@types/plotly.js": "1.50.21",
-    "@types/node": "14.11.8",
+    "@types/node": "14.14.10",
     "@types/node-sass": "4.11.1",
     "@types/autoprefixer": "9.7.2",
     "@types/babel-core": "6.25.6",
