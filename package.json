@@ -31,7 +31,7 @@
     "popper.js": "1.16.1-lts",
     "bootstrap": "4.6.0",
     "bootstrap-icons": "1.4.0",
-    "xstate": "4.16.2",
+    "xstate": "4.17.0",
     "plotly.js": "1.58.4",
     "postcss": "8.2.8"
   },
