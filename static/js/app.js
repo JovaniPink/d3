@@ -1,15 +1,12 @@
 // Import Bootstrap
 import 'bootstrap';
+import * as d3 from 'd3';
 
 // Importing the custom scss
 import '../scss/style.scss';
 
-// Importing D3
-// We do not have to import D3 because Plotly has it available.
-// import * as d3 from "../../node_modules/d3/dist/d3.js";
-
-// Importing Ploy.js
-import Plotly from '../../node_modules/plotly.js/dist/plotly.js';
+// Importing Plotly.js
+import Plotly from 'plotly.js-dist-min';
 
 // Importing the data from data.js
 import { data } from './data.js';
@@ -17,17 +14,12 @@ const tableData = data;
 
 // Importing the samples from sample.json
 import samples from './sample.json';
+import { findSample } from './samples.js';
 
 // buildCharts function.
 function buildCharts(sample) {
-  let sampleMetadata = Object.values(samples)[1];
-  let sampleData = Object.values(samples)[2];
-
-  let metaArray = sampleMetadata.filter((sampleObj) => sampleObj.id == sample);
-  let resultArray = sampleData.filter((sampleObj) => sampleObj.id == sample);
-
-  let metaResult = metaArray[0];
-  let result = resultArray[0];
+  const metaResult = findSample(samples.metadata, sample);
+  const result = findSample(samples.samples, sample);
 
   let otuIDs = result.otu_ids;
   let otu_labels = result.otu_labels;
@@ -147,22 +139,15 @@ function buildCharts(sample) {
     yaxis: { automargin: true },
   };
 
-  console.log(bubbleData['y']);
   Plotly.newPlot('bubble', bubbleData, bubbleLayout);
 }
 
 // Demographics Panel
 function buildMetadata(sample) {
-  let sampleMetadata = Object.values(samples)[1];
-
-  // Filter the data for the object with the desired sample number
-  let resultArray = sampleMetadata.filter(
-    (sampleObj) => sampleObj.id == sample
-  );
-  let result = resultArray[0];
+  const result = findSample(samples.metadata, sample);
 
   // Use d3 to select the panel with id of `#sample-metadata`
-  let card = Plotly.d3.select('#sample-metadata');
+  let card = d3.select('#sample-metadata');
 
   // Use `.html("") to clear any existing metadata
   card.html('');
@@ -177,8 +162,8 @@ function buildMetadata(sample) {
 
 // Initialize Function
 function init() {
-  let dropdownSelector = Plotly.d3.select('#selDataset');
-  let sampleNames = Object.values(samples)[0];
+  let dropdownSelector = d3.select('#selDataset');
+  let sampleNames = samples.names;
 
   sampleNames.forEach((sample) => {
     dropdownSelector.append('option').text(sample).property('value', sample);
@@ -195,7 +180,7 @@ init();
 
 // Initialize event listener
 document.addEventListener('DOMContentLoaded', function (event) {
-  Plotly.d3.select('#selDataset').on('change', function () {
+  d3.select('#selDataset').on('change', function () {
     let newSample = this.value;
     buildCharts(newSample);
     buildMetadata(newSample);
