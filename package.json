@@ -34,7 +34,7 @@
     "@types/plotly.js": "3.0.12",
     "prettier": "3.9.6",
     "sass": "1.102.0",
-    "vite": "8.2.0"
+    "vite": "8.2.2"
   },
   "engines": {
     "node": ">=22.12.0"
