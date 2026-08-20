@@ -33,7 +33,7 @@
     "@types/d3": "7.4.3",
     "@types/plotly.js": "3.0.12",
     "prettier": "3.9.6",
-    "sass": "1.102.0",
+    "sass": "1.103.1",
     "vite": "8.2.0"
   },
   "engines": {
