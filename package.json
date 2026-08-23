@@ -1,12 +1,12 @@
 {
-  "name": "nba-visualizer",
+  "name": "d3-plotly-learning-archive",
   "version": "1.0.0",
-  "description": "NBA Charts and Graphs with NBA Data. Visualization is done with Plotly.js.",
+  "description": "Historical D3 and Plotly data-visualization learning archive.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JovaniPink/belly-graphs.git"
+    "url": "git+https://github.com/JovaniPink/d3.git"
   },
-  "homepage": "https://github.com/JovaniPink/belly-graphs#readme",
+  "homepage": "https://github.com/JovaniPink/d3#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base ./",
@@ -15,12 +15,12 @@
     "test": "node --test"
   },
   "keywords": [
-    "bootstrap",
-    "sass",
-    "javascript",
-    "xstate",
-    "ployly.js",
-    "dashboard"
+    "data-visualization",
+    "d3",
+    "plotly",
+    "nba",
+    "biodiversity",
+    "learning-archive"
   ],
   "author": "Jovani Pink",
   "license": "MIT",
