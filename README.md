@@ -1,88 +1,72 @@
-# NBA Visualizer
+# D3 and Plotly learning archive
 
-> Welcome to NBA Visualizer
+This repository preserves exploratory data-visualization work from 2019-2021.
+It is a learning archive, not a production application or a single finished
+analysis.
 
-![Picture of a Basketball](./static/images/nba.jpg)
+The current tree combines two historical threads:
 
-<span>Photo by <a href="https://unsplash.com/@echaparro?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Edgar Chaparro</a> on <a href="https://unsplash.com/s/photos/nba?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+- NBA regression source files and instructions under `data/raw/`
+- an unfinished NBA-branded page shell whose active D3 and Plotly code renders
+  the Belly Button Biodiversity sample dataset
 
-## Overview of Project
+That mixed state is intentional to preserve the work's history, but it should
+not be presented as a coherent NBA product or as a completed scientific study.
+For the maintained and published biodiversity dashboard, use
+[`JovaniPink/belly-graphs`](https://github.com/JovaniPink/belly-graphs) and its
+[live GitHub Pages build](https://jovanipink.github.io/belly-graphs/).
 
-Created an interactive dashboard to explore the Belly Button Biodiversity Data Set and completed an end-to-end analysis. Technologies used: HTML/CSS/Bootstrap, JavaScript Library Plotly, D3.js.
+## What this archive demonstrates
 
-## Summary
+- loading a structured sample dataset into a browser application
+- coordinating D3 selection and event handling with Plotly charts
+- rendering bar, indicator-gauge, and scatter visualizations
+- isolating sample lookup behavior behind a small tested module
+- modernizing an older Parcel and node-sass build to Vite and Dart Sass
 
-What species are present in your navel?
-What is the relative abundance of your common species?
-Do some species dominate more than others?
-Who are these species?
+It does not establish data provenance, analytical validity, user adoption, or a
+production deployment. A successful build proves only that the retained source
+compiles; it does not resolve the page's placeholder copy, mixed NBA and
+biodiversity identity, or incomplete assets.
 
-## Analysis and Challenges
+## Run the archive locally
 
-- 153 participants are represented in this data set
-- display the top ten most commonly found bacteria in a person's belly button
-- Each of her volunteers carries a variety of bacterial species in his or her belly button.
-- There is also information on the number of bacteria found for each species. The dashboard Roza has in mind will display the most common bacterial species, by count, in the navel.
-- If Improbable Beef is looking for people who carry a large number of a certain bacterial species, Roza's volunteers should be able to quickly use the dashboard to figure out whether they are eligible to sell their bacteria to the company.
-- The metadata array contains objects, each of which contains details of a volunteer, such as age, location, ethnicity, ID number, and weekly washing frequency of the belly button.
-- we can see that names is simply an array of the ID numbers of the volunteers.
-- samples array:
-  - The id key identifies the ID number.
-  - The otu_ids property is an array of the ID numbers of all the bacteria found in this person's navel. OTU stands for Operational Taxonomic Unit, and here it means species or bacterial type. In this instance, there were 80 bacterial types with distinct ID numbers.
-  - The sample_values array contains the corresponding species name for each bacterial ID number. Some bacterial species have different ID numbers, but are clumped together under the same otu_label.
+Node.js 22.12 or newer is required.
 
-### Charts
+```bash
+npm ci
+npm run dev
+```
 
-Created a Bar Chart to display the top 10 samples.
+Run the maintained gates with:
 
-https://plotly.com/javascript/bar-charts/
+```bash
+npm test
+npm run format:check
+npm run build
+npm audit --audit-level=high
+```
 
-- Used sample_values as the values for the PIE chart
-- Used otu_ids as the labels for the pie chart
-- Used otu_labels as the hovertext for the chart
+The production build is written to ignored `dist/`; this repository does not
+publish that directory.
 
-Created a Gauge Chart to plot the Weekly Washing Frequency.
+## Repository map
 
-https://plotly.com/javascript/gauge-charts/
+- `static/js/app.js` builds the retained biodiversity dashboard.
+- `static/js/sample.json` contains the dashboard's sample data.
+- `static/js/samples.js` defines the tested sample-selection contract.
+- `data/raw/` contains separate 2017 NBA regression materials.
+- `test/` contains the small Node test suite.
+- `vite.config.js` defines the current build boundary.
 
-- You will need to modify the example gauge code to account for values ranging from 0 - 9.
-- Update the chart whenever a new sample is selected
+## Data and evidence boundary
 
-Created a Bubble Chart to display each sample.
-
-https://plotly.com/javascript/bubble-charts/
-
-- Used otu_ids for the x values
-- Used sample_values for the y values
-- Used sample_values for the marker size
-- Used otu_ids for the marker colors
-- Used otu_labels for the text values
-
-### Theme Colors
-
-- #2454a4
-- #7153ac
-- #a94da7
-- #d74896
-- #f84d7b
-- #ff635c
-- #ff8339
-- #ffa600
-
-## Todo Checklist
-
-A helpful checklist to gauge how your README is coming on what I would like to finish:
-
-- [ ] Finish the theme-switch script.
-- [ ] Finish the dark mode and theme.
-- [ ] Finish the word-frequency script.
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+The source-data directories do not contain a complete provenance ledger or a
+current research protocol. Treat their contents as course-era learning
+materials, not as an authoritative NBA or microbiome dataset. Do not infer
+medical, commercial, or statistical conclusions from this archive.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+The repository is available under the [MIT License](LICENSE). Third-party data,
+fonts, images, and libraries retain their own terms and attribution requirements.
